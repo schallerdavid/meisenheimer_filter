@@ -16,6 +16,13 @@ logo = "\n".join([
 
 
 def get_meisenheimer_smarts():
+    """
+    This function reads SMARTS from the meisenheimer.smarts file shipped with this repository.
+    Returns
+    -------
+    smarts : list
+        List of smarts.
+    """
     file_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'meisenheimer.smarts')
     smarts = []
     with open(file_path, 'r') as rf:
