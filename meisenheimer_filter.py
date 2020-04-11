@@ -1,5 +1,6 @@
 import argparse
 from rdkit import Chem
+from rdkit import RDLogger
 import os
 import sys
 import time
@@ -135,6 +136,7 @@ if __name__ == '__main__':
     else:
         writer = Chem.SDWriter(output_path)
     mol_counter = 0
+    RDLogger.DisableLog('rdApp.*')
     start_time = time.time()
     for input_path in input_paths:
         if '.smi' in input_path:
