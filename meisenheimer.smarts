@@ -7,7 +7,7 @@
 [$(a1a(C#N)a(SC(F)(F)F)aaa1),$(a1a(C#N)aaa(SC(F)(F)F)a1)]
 [$(a1a(C#N)a([Cl,F,I,Br])aaa1),$(a1a(C#N)aaa([Cl,F,I,Br])a1)]
 [$(a1a(C(=O)[$(O[#6]),$([#6])])a(S(=O)(=O)[#6])aaa1),$(a1a(C(=O)[$(O[#6]),$([#6])])aaa(S(=O)(=O)[#6])a1)]
-[$(a1a(C(=O)[$(O[#6]),$([#6])])a(Sa)aaa1,$(a1a(C(=O)[$(O[#6]),$([#6])])aaa(Sa)a1)]
+[$(a1a(C(=O)[$(O[#6]),$([#6])])a(Sa)aaa1),$(a1a(C(=O)[$(O[#6]),$([#6])])aaa(Sa)a1)]
 [$(a1a(C(=O)[$(O[#6]),$([#6])])a(SC(F)(F)F)aaa1),$(a1a(C(=O)[$(O[#6]),$([#6])])aaa(SC(F)(F)F)a1)]
 [$(a1a(C(=O)[$(O[#6]),$([#6])])a([Cl,F,I,Br])aaa1),$(a1a(C(=O)[$(O[#6]),$([#6])])aaa([Cl,F,I,Br])a1)]
 a1na([S](=O)C)aaa1
