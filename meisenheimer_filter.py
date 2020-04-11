@@ -141,7 +141,6 @@ if __name__ == '__main__':
                         required=True)
     parser.add_argument('-o', dest='output_path', help='path to output file (*.smi, *.sdf)',
                         default='./meisenheimer.smi')
-    print(logo)
     if os.path.isdir(parser.parse_args().input_paths):
         input_directory = os.path.abspath(parser.parse_args().input_paths)
         input_paths = [os.path.join(input_directory, path) for path in os.listdir(input_directory)
@@ -150,6 +149,7 @@ if __name__ == '__main__':
         input_paths = [os.path.abspath(path) for path in parser.parse_args().input_paths.split(',')]
     num_molecules = sum([count_mols(input_path) for input_path in input_paths])
     output_path = os.path.abspath(parser.parse_args().output_path)
+    print(logo, '\n')
     meisenheimer_smarts = get_meisenheimer_smarts()
     if '.smi' in output_path:
         writer = Chem.SmilesWriter(output_path)
