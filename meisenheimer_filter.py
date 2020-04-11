@@ -112,6 +112,26 @@ def update_progress(progress, progress_info, eta):
     return
 
 
+def match_substructures(mol, substructures):
+    """
+    This function checks if a molecule contains any of the provided substructures.
+    Parameters
+    ----------
+    mol : Chem.rdchem.Mol
+        An RDKit molecule.
+    substructures: list
+        List of substructures as RDKit molecules.
+    Returns
+    -------
+    match: bool
+        True if any substructure was matched, otherwise False.
+    """
+    for substructure in substructures:
+        if mol.HasSubstructMatch(substructure):
+            return True
+    return False
+
+
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(prog='meisenheimer filter', description=logo,
                                      formatter_class=argparse.RawTextHelpFormatter)
@@ -144,11 +164,8 @@ if __name__ == '__main__':
         else:
             supplier = Chem.SDMolSupplier(input_path)
         for mol in supplier:
-            for smarts_index in range(len(meisenheimer_smarts)):
-                pattern = meisenheimer_smarts[smarts_index]
-                if mol.HasSubstructMatch(pattern):
-                    writer.write(mol)
-                    break
+            if match_substructures(mol, meisenheimer_smarts):
+                writer.write(mol)
             mol_counter += 1
             update_progress(mol_counter / num_molecules, 'Progress', ((time.time() - start_time) / mol_counter) *
                             (num_molecules - mol_counter))
