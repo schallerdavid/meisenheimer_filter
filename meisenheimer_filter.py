@@ -156,6 +156,7 @@ if __name__ == '__main__':
     else:
         writer = Chem.SDWriter(output_path)
     mol_counter = 0
+    meisenheimer_counter = 0
     RDLogger.DisableLog('rdApp.*')
     start_time = time.time()
     for input_path in input_paths:
@@ -166,8 +167,10 @@ if __name__ == '__main__':
         for mol in supplier:
             if match_substructures(mol, meisenheimer_smarts):
                 writer.write(mol)
+                meisenheimer_counter += 1
             mol_counter += 1
             update_progress(mol_counter / num_molecules, 'Progress', ((time.time() - start_time) / mol_counter) *
                             (num_molecules - mol_counter))
     writer.close()
+    print('Found {} matches.'.format(meisenheimer_counter))
     print('Finished after {}.'.format(time_to_text(time.time() - start_time)))
